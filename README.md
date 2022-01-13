@@ -1,6 +1,6 @@
 # Terraform-AWS-work
 
-** Creating a EC2 instances using Terraform**
+# ** Creating a EC2 instances using Terraform**
 
     resource "aws_instance" "example" {
         ami                         = "ami-0c55b159cbfafe1f0"
@@ -19,7 +19,7 @@
         }
     }
 
-#Create security group to allow EC2 to receive traffic on 8080
+# Create security group to allow EC2 to receive traffic on 8080
 
     resource "aws_security_group" "instance" {
     name "terraform-example-instance"
