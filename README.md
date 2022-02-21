@@ -2,6 +2,11 @@
 
 # ** Creating a EC2 instances using Terraform**
 
+    provider "aws" {
+        region      = "us-east-1"
+        access_key  = "example_key"
+        secret_keY  = "secret key"
+
     resource "aws_instance" "example" {
         ami                         = "ami-0c55b159cbfafe1f0"
         instance_type               = "t2.micro"
