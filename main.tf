@@ -6,7 +6,7 @@ provider "aws" {
     resource "aws_instance" "terraform-instance-master" {
         ami                         = "ami-0c55b159cbfafe1f0"
         instance_type               = "t2.micro"
-        vpc_security_group_ids      = [aws_security_group.instance.id] 
+        vpc_security_group_ids      = [terraform-security-group-ec2.id] 
 
 #Execute Hello world afer ec2 is created
         user_data = <<-EOF
@@ -22,8 +22,8 @@ provider "aws" {
 
 # Create security group to allow EC2 to receive traffic on 8080
 
-    resource "aws_security_group" "terraform-instance-master" {
-    name "terraform-security-group-ec2"
+    resource "aws_security_group" "terraform-security-group-ec2" {
+        name        = "terraform-security-group-ec2"
 
     ingress {
         from_port   = 8080
@@ -31,4 +31,5 @@ provider "aws" {
         protocol    = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+}
 }
